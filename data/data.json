@@ -1,0 +1,601 @@
+{
+    "stations":[
+        {
+            "id": 1,
+            "coords": { "x": 20, "y": 95 },
+            "multi": false,
+            "name": {"ru_RU": "проспект ветеранов","en_EN": "prospekt veteranov"},
+            "edges": [{"time": 120,"id": 2}],
+            "line": 1
+        },
+        {
+            "id": 2,
+            "coords": { "x": 20, "y": 91 },
+            "multi": false,
+            "name": {"ru_RU": "ленинский проспект","en_EN": "leninskiy prospekt"},
+            "edges": [{"time": 120,"id": 1},{"time": 180,"id": 3}],
+            "line": 1
+        },
+        {
+            "id": 3,
+            "coords": { "x": 20, "y": 87 },
+            "multi": false,
+            "name": {"ru_RU": "автово","en_EN": "avtovo"},
+            "edges": [{"time": 180,"id": 2},{"time": 120,"id": 4}],
+            "line": 1
+        },
+        {
+            "id": 4,
+            "coords": { "x": 20, "y": 83 },
+            "multi": false,
+            "name": {"ru_RU": "кировский завод","en_EN": "kirovskiy zavod"},
+            "edges": [{"time": 120,"id": 3},{"time": 240,"id": 5}],
+            "line": 1
+        },
+        {
+            "id": 5,
+            "coords": { "x": 27, "y": 77 },
+            "multi": false,
+            "name": {"ru_RU": "кировский завод","en_EN": "kirovskiy zavod"},
+            "edges": [{"time": 240,"id": 4},{"time": 180,"id": 6}],
+            "line": 1
+        },
+        {
+            "id": 6,
+            "coords": { "x": 33, "y": 72 },
+            "multi": false,
+            "name": {"ru_RU": "балтийская","en_EN": "baltiyskaya"},
+            "edges": [{"time": 180,"id": 5},{"time": 180,"id": 7}],
+            "line": 1
+        },
+        {
+            "id": 7,
+            "coords": { "x": 40.8, "y": 64.55 },
+            "multi": true,
+            "name": {"ru_RU": "технологический институт 1","en_EN": "tekhnologicheskiy institut 1"},
+            "edges": [{"time": 180,"id": 6},{"time": 120,"id": 8},{"time": 120,"id": 27}],
+            "line": 1
+        },
+        {
+            "id": 8,
+            "coords": { "x": 51, "y": 55.17 },
+            "multi": true,
+            "name": {"ru_RU": "пушкинская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 7},{"time": 120,"id": 9},{"time": 180,"id": 62}],
+            "line": 1
+        },
+        {
+            "id": 9,
+            "coords": { "x": 57.7, "y": 48.47 },
+            "multi": true,
+            "name": {"ru_RU": "владимирская","en_EN": "vladimirskaya"},
+            "edges": [{"time": 120,"id": 8},{"time": 120,"id": 10},{"time": 180,"id": 56}],
+            "line": 1
+        },
+        {
+            "id": 10,
+                "coords": { "x": 57.7, "y": 40.5 },
+            "multi": true,
+            "name": {"ru_RU": "площадь восстания","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 9},{"time": 120,"id": 11},{"time": 180,"id": 44}],
+            "line": 1
+        },
+        {
+            "id": 11,
+                "coords": { "x": 59.0, "y": 36.0 },
+            "multi": false,
+            "name": {"ru_RU": "чернышевская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 10},{"time": 180,"id": 12}],
+            "line": 1
+        },
+        {
+            "id": 12,
+                "coords": { "x": 59.0, "y": 32.0 },
+            "multi": false,
+            "name": {"ru_RU": "площадь ленина","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 11},{"time": 120,"id": 13}],
+            "line": 1
+        },
+        {
+            "id": 13,
+                "coords": { "x": 59.0, "y": 28.0 },
+            "multi": false,
+            "name": {"ru_RU": "выборская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 12},{"time": 120,"id": 14}],
+            "line": 1
+        },
+        {
+            "id": 14,
+                "coords": { "x": 59.0, "y": 24.0 },
+            "multi": false,
+            "name": {"ru_RU": "лесная","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 13},{"time": 180,"id": 15}],
+            "line": 1
+        },
+        {
+            "id": 15,
+                "coords": { "x": 59.0, "y": 20.0 },
+            "multi": false,
+            "name": {"ru_RU": "площадь мужества","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 14},{"time": 180,"id": 16}],
+            "line": 1
+        },
+        {
+            "id": 16,
+                "coords": { "x": 59.0, "y": 16.0 },
+            "multi": false,
+            "name": {"ru_RU": "политехническая","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 15},{"time": 180,"id": 17}],
+            "line": 1
+        },
+        {
+            "id": 17,
+                "coords": { "x": 59.0, "y": 12.0 },
+            "multi": false,
+            "name": {"ru_RU": "академическая","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 16},{"time": 120,"id": 18}],
+            "line": 1
+        },
+        {
+            "id": 18,
+                "coords": { "x": 59.0, "y": 8.0 },
+            "multi": false,
+            "name": {"ru_RU": "граждансий проспект","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 17},{"time": 120,"id": 19}],
+            "line": 1
+        },
+        {
+            "id": 19,
+                "coords": { "x": 59.0, "y": 4.4 },
+            "multi": false,
+            "name": {"ru_RU": "девяткино","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 18}],
+            "line": 1
+        },
+        {
+            "id": 20,
+                "coords": { "x": 42.0, "y": 96.0 },
+            "multi": false,
+            "name": {"ru_RU": "купчино","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 21}],
+            "line": 2
+        },
+        {
+            "id": 21,
+                "coords": { "x": 42.0, "y": 92.0 },
+            "multi": false,
+            "name": {"ru_RU": "звёздная","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 20},{"time": 240,"id": 22}],
+            "line": 2
+        },
+        {
+            "id": 22,
+                "coords": { "x": 42.0, "y": 87.5 },
+            "multi": false,
+            "name": {"ru_RU": "московская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 21},{"time": 180,"id": 23}],
+            "line": 2
+        },
+        {
+            "id": 23,
+                "coords": { "x": 42.0, "y": 83.5 },
+            "multi": false,
+            "name": {"ru_RU": "парк победы","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 22},{"time": 120,"id": 24}],
+            "line": 2
+        },
+        {
+            "id": 24,
+                "coords": { "x": 42.0, "y": 79.0 },
+            "multi": false,
+            "name": {"ru_RU": "электросила","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 23},{"time": 120,"id": 25}],
+            "line": 2
+        },
+        {
+            "id": 25,
+                "coords": { "x": 42.0, "y": 75.5 },
+            "multi": false,
+            "name": {"ru_RU": "московские ворота","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 24},{"time": 120,"id": 26}],
+            "line": 2
+        },
+        {
+            "id": 26,
+                "coords": { "x": 42.0, "y": 70.5 },
+            "multi": false,
+            "name": {"ru_RU": "фрузенская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 25},{"time": 120,"id": 27}],
+            "line": 2
+        },
+        {
+            "id": 27,
+                "coords": { "x": 43.25, "y": 64.55 },
+            "multi": true,
+            "name": {"ru_RU": "технологический институт 2","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 26},{"time": 180,"id": 28},{"time": 120,"id": 7}],
+            "line": 2
+        },
+        {
+            "id": 28,
+                "coords": { "x": 41.3, "y": 49.56 },
+            "multi": true,
+            "name": {"ru_RU": "сенная площадь","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 27},{"time": 120,"id": 29},{"time": 180,"id": 63},{"time": 180,"id": 57}],
+            "line": 2
+        },
+        {
+            "id": 29,
+                "coords": { "x": 40.8, "y": 40.47 },
+            "multi": true,
+            "name": {"ru_RU": "невский проспект","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 28},{"time": 240,"id": 30},{"time": 180,"id": 45}],
+            "line": 2
+        },
+        {
+            "id": 30,
+                "coords": { "x": 42.0, "y": 34.0 },
+            "multi": false,
+            "name": {"ru_RU": "горьковкая","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 29},{"time": 120,"id": 31}],
+            "line": 2
+        },
+        {
+            "id": 31,
+                "coords": { "x": 42.0, "y": 30.0 },
+            "multi": false,
+            "name": {"ru_RU": "петроградская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 30},{"time": 240,"id": 32}],
+            "line": 2
+        },
+        {
+            "id": 32,
+                "coords": { "x": 42.0, "y": 26.0 },
+            "multi": false,
+            "name": {"ru_RU": "чёрная речка","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 31},{"time": 180,"id": 33}],
+            "line": 2
+        },
+        {
+            "id": 33,
+                "coords": { "x": 42.0, "y": 22.0 },
+            "multi": false,
+            "name": {"ru_RU": "пионерская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 32},{"time": 180,"id": 34}],
+            "line": 2
+        },
+        {
+            "id": 34,
+                "coords": { "x": 42.0, "y": 18.0 },
+            "multi": false,
+            "name": {"ru_RU": "удельная","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 33},{"time": 180,"id": 35}],
+            "line": 2
+        },
+        {
+            "id": 35,
+                "coords": { "x": 42.0, "y": 14.0 },
+            "multi": false,
+            "name": {"ru_RU": "озерки","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 34},{"time": 120,"id": 36}],
+            "line": 2
+        },
+        {
+            "id": 36,
+                "coords": { "x": 42.0, "y": 10.0 },
+            "multi": false,
+            "name": {"ru_RU": "проспект просвещения","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 35},{"time": 180,"id": 37}],
+            "line": 2
+        },
+        {
+            "id": 37,
+                "coords": { "x": 42.0, "y": 4.4 },
+            "multi": false,
+            "name": {"ru_RU": "парнас","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 36}],
+            "line": 2
+        },
+        {
+            "id": 38,
+                "coords": { "x": 76.0, "y": 95.0 },
+            "multi": false,
+            "name": {"ru_RU": "рыбацкое","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 39}],
+            "line": 3
+        },
+        {
+            "id": 39,
+                "coords": { "x": 76.0, "y": 88.0 },
+            "multi": false,
+            "name": {"ru_RU": "обухово","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 38},{"time": 180,"id": 40}],
+            "line": 3
+        },
+        {
+            "id": 40,
+                "coords": { "x": 76.0, "y": 81.0 },
+            "multi": false,
+            "name": {"ru_RU": "пролетарская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 39},{"time": 180,"id": 41}],
+            "line": 3
+        },
+        {
+            "id": 41,
+                "coords": { "x": 76.0, "y": 74.0 },
+            "multi": false,
+            "name": {"ru_RU": "ломоносовская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 40},{"time": 180,"id": 42}],
+            "line": 3
+        },
+        {
+            "id": 42,
+                "coords": { "x": 76.0, "y": 67.0 },
+            "multi": false,
+            "name": {"ru_RU": "елизаровская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 41},{"time": 300,"id": 43}],
+            "line": 3
+        },
+        {
+            "id": 43,
+                "coords": { "x": 74.7, "y": 48.47 },
+            "multi": true,
+            "name": {"ru_RU": "площадь александра невского 1","en_EN": "pushkinskaya"},
+            "edges": [{"time": 300,"id": 42},{"time": 180,"id": 44},{"time": 180,"id": 54}],
+            "line": 3
+        },
+        {
+            "id": 44,
+                "coords": { "x": 60.25, "y": 40.5 },
+            "multi": true,
+            "name": {"ru_RU": "маяковская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 43},{"time": 180,"id": 45},{"time": 180,"id": 10}],
+            "line": 3
+        },
+        {
+            "id": 45,
+                "coords": { "x": 43.25, "y": 40.5 },
+            "multi": true,
+            "name": {"ru_RU": "гостиный двор","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 44},{"time": 240,"id": 46},{"time": 180,"id": 29}],
+            "line": 3
+        },
+        {
+            "id": 46,
+                "coords": { "x": 17.0, "y": 40.5 },
+            "multi": false,
+            "name": {"ru_RU": "василеостровская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 45},{"time": 240,"id": 47}],
+            "line": 3
+        },
+        {
+            "id": 47,
+                "coords": { "x": 10.0, "y": 34.0 },
+            "multi": false,
+            "name": {"ru_RU": "приморская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 46},{"time": 240,"id": 48}],
+            "line": 3
+        },
+        {
+            "id": 48,
+                "coords": { "x": 10.0, "y": 27.0 },
+            "multi": false,
+            "name": {"ru_RU": "новокрестовская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 47},{"time": 240,"id": 49}],
+            "line": 3
+        },
+        {
+            "id": 49,
+                "coords": { "x": 10.0, "y": 20.0 },
+            "multi": false,
+            "name": {"ru_RU": "беговая","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 48}],
+            "line": 3
+        },
+        {
+            "id": 50,
+                "coords": { "x": 93.0, "y": 76.0 },
+            "multi": false,
+            "name": {"ru_RU": "улица дыбенко","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 51}],
+            "line": 4
+        },
+        {
+            "id": 51,
+                "coords": { "x": 93.0, "y": 70.0 },
+            "multi": false,
+            "name": {"ru_RU": "проспект большевиков","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 50},{"time": 180,"id": 52}],
+            "line": 4
+        },
+        {
+            "id": 52,
+                "coords": { "x": 93.0, "y": 65.0 },
+            "multi": false,
+            "name": {"ru_RU": "ладожская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 51},{"time": 180,"id": 53}],
+            "line": 4
+        },
+        {
+            "id": 53,
+                "coords": { "x": 93.0, "y": 60.0 },
+            "multi": false,
+            "name": {"ru_RU": "новочеркасская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 52},{"time": 180,"id": 54}],
+            "line": 4
+        },
+        {
+            "id": 54,
+                "coords": { "x": 77.2, "y": 48.47 },
+            "multi": true,
+            "name": {"ru_RU": "площадь александра невского 2","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 53},{"time": 120,"id": 55},{"time": 180,"id": 43}],
+            "line": 4
+        },
+        {
+            "id": 55,
+                "coords": { "x": 67.5, "y": 48.5 },
+            "multi": false,
+            "name": {"ru_RU": "лиговский проспект","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 54},{"time": 120,"id": 56}],
+            "line": 4
+        },
+        {
+            "id": 56,
+                "coords": { "x": 60.35, "y": 48.47 },
+            "multi": true,
+            "name": {"ru_RU": "достоевская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 55},{"time": 240,"id": 57},{"time": 180,"id": 9}],
+            "line": 4
+        },
+        {
+            "id": 57,
+                "coords": { "x": 43.2, "y": 48.4 },
+            "multi": true,
+            "name": {"ru_RU": "спасская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 56},{"time": 180,"id": 28},{"time": 180,"id": 63}],
+            "line": 4
+        },
+        {
+            "id": 58,
+                "coords": { "x": 59.0, "y": 85.0 },
+            "multi": false,
+            "name": {"ru_RU": "международная","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 59}],
+            "line": 5
+        },
+        {
+            "id": 59,
+                "coords": { "x": 59.0, "y": 78.0 },
+            "multi": false,
+            "name": {"ru_RU": "бухаретская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 58},{"time": 180,"id": 60}],
+            "line": 5
+        },
+        {
+            "id": 60,
+                "coords": { "x": 59.0, "y": 72.0 },
+            "multi": false,
+            "name": {"ru_RU": "волковская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 59},{"time": 180,"id": 61}],
+            "line": 5
+        },
+        {
+            "id": 61,
+                "coords": { "x": 59.0, "y": 60.0 },
+            "multi": false,
+            "name": {"ru_RU": "обводный канал","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 60},{"time": 180,"id": 62}],
+            "line": 5
+        },
+        {
+            "id": 62,
+                "coords": { "x": 53.5, "y": 55.17 },
+            "multi": true,
+            "name": {"ru_RU": "звенигородская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 61},{"time": 240,"id": 63},{"time": 180,"id": 8}],
+            "line": 5
+        },
+        {
+            "id": 63,
+                "coords": { "x": 41.3, "y": 47.68 },
+            "multi": true,
+            "name": {"ru_RU": "садовая","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 62},{"time": 180,"id": 64},{"time": 180,"id": 28},{"time": 180,"id": 57}],
+            "line": 5
+        },
+        {
+            "id": 64,
+                "coords": { "x": 36.0, "y": 43.5 },
+            "multi": false,
+            "name": {"ru_RU": "адмиралтейская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 63},{"time": 180,"id": 65}],
+            "line": 5
+        },
+        {
+            "id": 65,
+                "coords": { "x": 25.0, "y": 34.0 },
+            "multi": false,
+            "name": {"ru_RU": "спортивная","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 64},{"time": 120,"id": 66},{"time": 240,"id": 70}],
+            "line": 5
+        },
+        {
+            "id": 66,
+                "coords": { "x": 25.0, "y": 28.5 },
+            "multi": false,
+            "name": {"ru_RU": "чкаловская","en_EN": "pushkinskaya"},
+            "edges": [{"time": 120,"id": 65},{"time": 240,"id": 67}],
+            "line": 5
+        },
+        {
+            "id": 67,
+                "coords": { "x": 25.0, "y": 23.0 },
+            "multi": false,
+            "name": {"ru_RU": "крестовский остров","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 66},{"time": 180,"id": 68}],
+            "line": 5
+        },
+        {
+            "id": 68,
+                "coords": { "x": 25.0, "y": 16.5 },
+            "multi": false,
+            "name": {"ru_RU": "старая деревня","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 67},{"time": 180,"id": 69}],
+            "line": 5
+        },
+        {
+            "id": 69,
+                "coords": { "x": 25.0, "y": 10.0 },
+            "multi": false,
+            "name": {"ru_RU": "коменданский проспект","en_EN": "pushkinskaya"},
+            "edges": [{"time": 180,"id": 68}],
+            "line": 5
+        },
+        {
+            "id": 70,
+                "coords": { "x": 20.0, "y": 36.0 },
+            "multi": false,
+            "name": {"ru_RU": "","en_EN": "pushkinskaya"},
+            "edges": [{"time": 240,"id": 65}],
+            "line": 5
+        }
+        
+    ],
+    "multiPoints":[
+        {"coords": {"x": 40.5, "y": 64.37}, "id": [7,27]},
+        {"coords": {"x": 40.5, "y": 47.25}, "id": [28,57,63]},
+        {"coords": {"x": 40.5, "y": 40.27}, "id": [29,45]},
+        {"coords": {"x": 57.5, "y": 40.27}, "id": [10,44]},
+        {"coords": {"x": 57.5, "y": 48.27}, "id": [9,56]},
+        {"coords": {"x": 74.5, "y": 48.27}, "id": [43,54]},
+        {"coords": {"x": 50.8, "y": 54.97}, "id": [8,62]}
+    ],
+    "lines":[
+        [
+            {"from":1,"to":2},{"from":2,"to":3},{"from":3,"to":4},{"from":4,"to":5},{"from":5,"to":6},{"from":6,"to":7},{"from":7,"to":8},{"from":8,"to":9},{"from":9,"to":10},{"from":10,"to":11},{"from":11,"to":12},{"from":12,"to":13},{"from":13,"to":14},{"from":14,"to":15},{"from":15,"to":16},{"from":16,"to":17},{"from":17,"to":18},{"from":18,"to":19}
+        ],
+        [
+            {"from":20,"to":21},{"from":21,"to":22},{"from":22,"to":23},{"from":23,"to":24},{"from":24,"to":25},{"from":25,"to":26},{"from":26,"to":27},{"from":27,"to":28},{"from":28,"to":29},{"from":29,"to":30},{"from":30,"to":31},{"from":31,"to":32},{"from":32,"to":33},{"from":33,"to":34},{"from":34,"to":35},{"from":35,"to":36},{"from":36,"to":37}
+        ],
+        [
+            {"from":38,"to":39},{"from":39,"to":40},{"from":40,"to":41},{"from":41,"to":42},{"from":42,"to":43},{"from":43,"to":44},{"from":44,"to":45},{"from":45,"to":46},{"from":46,"to":47},{"from":47,"to":48},{"from":48,"to":49}
+
+        ],
+        [
+            {"from":50,"to":51},{"from":51,"to":52},{"from":52,"to":53},{"from":53,"to":54},{"from":54,"to":55},{"from":55,"to":56},{"from":56,"to":57}
+        ],
+        [
+            {"from":58,"to":59},{"from":59,"to":60},{"from":60,"to":61},{"from":61,"to":62},{"from":62,"to":63},{"from":63,"to":64},{"from":64,"to":65},{"from":65,"to":66},{"from":66,"to":67},{"from":67,"to":68},{"from":68,"to":69},{"from":65,"to":70}
+        ]
+
+    ],
+    "colors":[
+        {"r": 212, "g": 40.8, "b": 61},
+        {"r": 19, "g": 127, "b": 201},
+        {"r": 21, "g": 152, "b": 91},
+        {"r": 220, "g": 112, "b": 33},
+        {"r": 109, "g": 20, "b": 118}
+    ]
+}
+
