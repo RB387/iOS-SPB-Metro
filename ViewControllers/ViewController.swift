@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
+    //-MARK- UI ELEMENTS
+    private let selectMenu = SelectMenuView()
     @IBOutlet weak var map: MapView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var showRouteButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     private let scale: CGFloat = 20
     private var lineWidth: CGFloat = 40
     private var menuFontSize: CGFloat = 20
@@ -23,12 +27,16 @@ class ViewController: UIViewController {
     private var menuStrokeWidth: CGFloat = 2
     private var menuWidth: CGFloat = 200
     private var menuHeight: CGFloat = 50
-    private var selectMenu = SelectMenuView()
     private var previusStation = StationView()
     private var alpha: CGFloat = 0.2
+    private var menuConstraint = 8
+    
+    private var pathBuilded: Bool = false
+    private var path: [Int] = []
     
     private var stationFrom: Int? = nil
     private var stationTo: Int? = nil
+    
     
     func setupParams(){
         lineWidth = scale
@@ -50,11 +58,18 @@ class ViewController: UIViewController {
         map.lineWidth = lineWidth
         map.scale = Float(scale)
         map.delegate = self
+        // -MARK- Button
+        let screenHeight = UIScreen.main.bounds.height
+        showRouteButton.layer.cornerRadius = screenHeight / 24
+        showRouteButton.alpha = 0
+        cancelButton.layer.cornerRadius = screenHeight / 32
+        cancelButton.alpha = 0
     }
+
     
     func configureSelectMenu(){
         // -MARK- SelectMenu
-        selectMenu = SelectMenuView(frame: CGRect(x: 0, y: 0, width: menuWidth, height: menuHeight))
+        selectMenu.frame = CGRect(x: 0, y: 0, width: menuWidth, height: menuHeight)
         selectMenu.isHidden = true
         selectMenu.alpha = 0
         selectMenu.fontSize = CGFloat(menuFontSize)
@@ -81,10 +96,28 @@ class ViewController: UIViewController {
         updateScale()
         centerMap()
     }
+    
+    @IBAction func showRouteClick(_ sender: Any) {
+        performSegue(withIdentifier: "showPath", sender: showRouteButton)
+    }
+    
+    @IBAction func cancelButtonClick(_ sender: Any) {
+        resetMap()
+        UIView.animate(withDuration: 0.3){
+            self.showRouteButton.alpha = 0
+            self.cancelButton.alpha = 0
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showPath" else { return }
+        guard let destination = segue.destination as? PathViewController else { return }
+        destination.path = path
+    }
 }
 
 // -MARK- Logic of elements
 extension ViewController {
+    
     func hideMenu(animated: Bool){
         if !animated { selectMenu.alpha = 0 }
         UIView.animate(withDuration: 0.3, animations: {
@@ -111,11 +144,10 @@ extension ViewController {
     func buildPath(){
         guard let pathFrom = stationFrom, let pathTo = stationTo else { return }
         
-        let path = FindPath(from: pathFrom, to: pathTo)
+        path = FindPath(from: pathFrom, to: pathTo)
         var edges = [CAShapeLayer]()
         
         for stationId in 0..<(path.count-1){
-            print(stationId)
             if let edge = lines["\(path[stationId]) \(path[stationId + 1])"] ?? lines["\(path[stationId + 1]) \(path[stationId])"] {
                 edges.append(edge.layer)
             }
@@ -132,7 +164,23 @@ extension ViewController {
             station.value.circle.layoutSubviews()
             station.value.title.alpha = alpha
         }
-        
+        pathBuilded = true
+        UIView.animate(withDuration: 0.2) { self.showRouteButton.alpha = 1
+            self.cancelButton.alpha = 1
+        }
+    }
+    
+    func resetMap(){
+        for line in lines {
+            line.value.layer.strokeColor = line.value.color.cgColor
+        }
+        for station in stations {
+            station.value.circle.color = station.value.color
+            station.value.circle.layoutSubviews()
+            station.value.title.alpha = 1
+        }
+        stationTo = nil; stationFrom = nil
+        pathBuilded = false
     }
     
 }
@@ -157,6 +205,7 @@ extension ViewController: UIScrollViewDelegate {
 
 extension ViewController: StationDelegate{
     func stationSelected(sender: StationView) {
+        if pathBuilded { return }
         hideMenu(animated: true)
         previusStation.strokeWidth = strokeWidth
         let menuX = sender.frame.minX - selectMenu.frame.size.width/2 + lineWidth/2 + strokeWidth

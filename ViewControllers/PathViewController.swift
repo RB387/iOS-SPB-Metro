@@ -18,6 +18,11 @@ class PathViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentY = indent
+        var previusLine = -1
+        for stationId in path {
+            let station = MetroData.shared.stations[stationId]
+            
+        }
     }
     
 
