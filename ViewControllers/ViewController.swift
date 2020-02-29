@@ -56,6 +56,8 @@ class ViewController: UIViewController {
         map.strokeScale = strokeScale
         map.strokeWidth = strokeWidth
         map.lineWidth = lineWidth
+        map.color = view.backgroundColor ?? .white
+        map.backgroundColor = view.backgroundColor
         map.scale = Float(scale)
         map.delegate = self
         // -MARK- Button
@@ -74,6 +76,7 @@ class ViewController: UIViewController {
         selectMenu.alpha = 0
         selectMenu.fontSize = CGFloat(menuFontSize)
         selectMenu.strokeWidth = menuStrokeWidth
+        selectMenu.color = view.backgroundColor ?? .white
         selectMenu.spaceBetween = lineWidth
         selectMenu.delegate = self
         //

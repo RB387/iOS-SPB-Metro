@@ -18,6 +18,7 @@ class MapView: UIView {
     var strokeScale: CGFloat = 10
     var strokeWidth: CGFloat = 10
     var lineWidth: CGFloat = 10
+    var color: UIColor = .white
     var scale: Float = 10
     
     func drawStation(_ idx: Int, delegate: StationDelegate) -> (circle: StationView, title: UILabel, color: UIColor){
@@ -28,8 +29,8 @@ class MapView: UIView {
         stationUI.strokeScale = strokeScale
         stationUI.strokeWidth = strokeWidth
         stationUI.lineWidth = lineWidth
+        stationUI.backgroundColor = color
         stationUI.color = UIColor(red: CGFloat(line.color.r/255), green: CGFloat(line.color.g/255), blue: CGFloat(line.color.b/255), alpha: 1.0)
-        stationUI.backgroundColor = .white
         stationUI.stationId = idx
         stationUI.delegate = delegate
         
@@ -74,6 +75,7 @@ class MapView: UIView {
         let pointY = CGFloat(coords.y) - height/CGFloat(multiPoint.ids.count) + lineWidth/2 - strokeWidth
         let point = MultiPointView(frame: CGRect(x: pointX, y: pointY, width: width, height: height))
         point.strokeWidth = strokeWidth
+        point.color = color
         point.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         point.layer.cornerRadius = point.frame.height * 0.5
         return point

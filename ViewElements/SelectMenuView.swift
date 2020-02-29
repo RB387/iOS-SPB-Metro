@@ -17,6 +17,7 @@ class SelectMenuView: UIView {
     var spaceBetween: CGFloat = 40
     var delegate: SelectMenuDelegate?
     var fontSize: CGFloat = 40
+    var color: UIColor = .white
     var strokeWidth: CGFloat = 5
     private var fromSelector = SelectorView()
     private var toSelector = SelectorView()
@@ -31,6 +32,7 @@ class SelectMenuView: UIView {
         fromSelector.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         fromSelector.fontColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         fromSelector.strokeWidth = strokeWidth
+        fromSelector.color = color
         
         toSelector.frame = CGRect(x: frame.size.width/2 + spaceBetween/2, y: 0, width: frame.size.width/2 - spaceBetween/2, height: frame.size.height)
         toSelector.fontSize = fontSize
