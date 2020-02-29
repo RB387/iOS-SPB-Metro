@@ -10,7 +10,6 @@ import UIKit
 
 class PathViewController: UIViewController {
 
-    @IBOutlet weak var pathView: UIView!
     var path = [Int]()
     private var indent = 16
     private var currentY = 0

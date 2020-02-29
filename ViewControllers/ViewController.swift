@@ -37,52 +37,6 @@ class ViewController: UIViewController {
     private var stationFrom: Int? = nil
     private var stationTo: Int? = nil
     
-    
-    func setupParams(){
-        lineWidth = scale
-        strokeWidth = scale/4
-        menuStrokeWidth = scale/8
-        menuWidth = scale*8
-        menuHeight = menuWidth/4
-        menuFontSize = scale/2
-    }
-    
-    func configureSubviews(){
-        // -MARK- ScrollView
-        scrollView.minimumZoomScale = UIScreen.main.bounds.size.width / map.frame.size.width
-        scrollView.maximumZoomScale = 1
-        scrollView.zoomScale = scrollView.minimumZoomScale
-        // -MARK- Map
-        map.strokeScale = strokeScale
-        map.strokeWidth = strokeWidth
-        map.lineWidth = lineWidth
-        map.color = view.backgroundColor ?? .white
-        map.backgroundColor = view.backgroundColor
-        map.scale = Float(scale)
-        map.delegate = self
-        // -MARK- Button
-        let screenHeight = UIScreen.main.bounds.height
-        showRouteButton.layer.cornerRadius = screenHeight / 24
-        showRouteButton.alpha = 0
-        cancelButton.layer.cornerRadius = screenHeight / 32
-        cancelButton.alpha = 0
-    }
-
-    
-    func configureSelectMenu(){
-        // -MARK- SelectMenu
-        selectMenu.frame = CGRect(x: 0, y: 0, width: menuWidth, height: menuHeight)
-        selectMenu.isHidden = true
-        selectMenu.alpha = 0
-        selectMenu.fontSize = CGFloat(menuFontSize)
-        selectMenu.strokeWidth = menuStrokeWidth
-        selectMenu.color = view.backgroundColor ?? .white
-        selectMenu.spaceBetween = lineWidth
-        selectMenu.delegate = self
-        //
-        map.addSubview(selectMenu)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupParams()
@@ -118,6 +72,55 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController {
+    //-MARK- Configure methods
+    func setupParams(){
+        lineWidth = scale
+        strokeWidth = scale/4
+        menuStrokeWidth = scale/8
+        menuWidth = scale*12
+        menuHeight = menuWidth/4
+        menuFontSize = menuHeight/4
+    }
+    
+    func configureSubviews(){
+        // -MARK- ScrollView
+        scrollView.contentSize = map.frame.size
+        scrollView.minimumZoomScale = UIScreen.main.bounds.size.width / map.frame.size.width
+        scrollView.maximumZoomScale = 1
+        scrollView.zoomScale = scrollView.minimumZoomScale
+        // -MARK- Map
+        map.strokeScale = strokeScale
+        map.strokeWidth = strokeWidth
+        map.lineWidth = lineWidth
+        map.color = view.backgroundColor ?? .white
+        map.backgroundColor = view.backgroundColor
+        map.scale = Float(scale)
+        map.delegate = self
+        // -MARK- Button
+        let screenHeight = UIScreen.main.bounds.height
+        showRouteButton.layer.cornerRadius = screenHeight / 24
+        showRouteButton.alpha = 0
+        cancelButton.layer.cornerRadius = screenHeight / 32
+        cancelButton.alpha = 0
+    }
+
+    
+    func configureSelectMenu(){
+        // -MARK- SelectMenu
+        selectMenu.frame = CGRect(x: 0, y: 0, width: menuWidth, height: menuHeight)
+        selectMenu.isHidden = true
+        selectMenu.alpha = 0
+        selectMenu.fontSize = CGFloat(menuFontSize)
+        selectMenu.strokeWidth = menuStrokeWidth
+        selectMenu.color = view.backgroundColor ?? .white
+        selectMenu.spaceBetween = lineWidth
+        selectMenu.delegate = self
+        //
+        map.addSubview(selectMenu)
+    }
+}
+
 // -MARK- Logic of elements
 extension ViewController {
     
@@ -138,10 +141,9 @@ extension ViewController {
     }
     
     func centerMap(){
-        let centerOffsetX = (scrollView.contentSize.width - scrollView.frame.size.width) / 2
-        let centerOffsetY = (scrollView.contentSize.height - scrollView.frame.size.height) / 2
-        let centerPoint = CGPoint(x: centerOffsetX, y: centerOffsetY)
-        scrollView.setContentOffset(centerPoint, animated: true)
+        let horizontalSpace = map.frame.size.width < scrollView.bounds.width ? (scrollView.bounds.width - map.frame.size.width) / 2 : 0
+        let verticalSpace = map.frame.size.height < scrollView.bounds.height ? (scrollView.bounds.height - map.frame.size.height) / 2 : 0
+        scrollView.contentInset = UIEdgeInsets(top: verticalSpace, left: horizontalSpace, bottom: verticalSpace, right: horizontalSpace)
     }
     
     func buildPath(){
@@ -201,9 +203,6 @@ extension ViewController: UIScrollViewDelegate {
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateScale()
     }
-    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        if scale < scrollView.minimumZoomScale * 1.01 { centerMap() }
-    }
 }
 
 extension ViewController: StationDelegate{
@@ -229,7 +228,7 @@ extension ViewController: SelectMenuDelegate {
         switch sender.accessibilityIdentifier {
         case "toSelector": stationTo = previusStation.stationId
         case "fromSelector": stationFrom = previusStation.stationId
-        default: print("ERROR")
+        default: fatalError("No such identifier")
         }
         buildPath()
         hideMenu(animated: true)

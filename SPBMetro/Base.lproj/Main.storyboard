@@ -96,25 +96,14 @@
                     <view key="view" contentMode="scaleToFill" id="knC-2l-X5C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxI-uA-MHD">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="SxI-uA-MHD" firstAttribute="top" secondItem="4AG-PE-dfU" secondAttribute="top" id="Gk4-7h-ibZ"/>
-                            <constraint firstItem="4AG-PE-dfU" firstAttribute="trailing" secondItem="SxI-uA-MHD" secondAttribute="trailing" id="ZYU-Ko-2Qp"/>
-                            <constraint firstItem="SxI-uA-MHD" firstAttribute="leading" secondItem="4AG-PE-dfU" secondAttribute="leading" id="kZG-91-jV2"/>
-                            <constraint firstItem="SxI-uA-MHD" firstAttribute="bottom" secondItem="4AG-PE-dfU" secondAttribute="bottom" constant="34" id="uoI-bn-tF5"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4AG-PE-dfU"/>
                     </view>
                     <navigationItem key="navigationItem" id="hwt-Dc-lVC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pq2-wf-jkZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032" y="94"/>
+            <point key="canvasLocation" x="1031.8840579710145" y="93.75"/>
         </scene>
     </scenes>
     <resources>
