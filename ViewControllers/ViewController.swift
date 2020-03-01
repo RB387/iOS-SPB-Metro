@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var showRouteButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    
+    //-MARK- Settings for UI elements
     private let scale: CGFloat = 20
     private var lineWidth: CGFloat = 40
     private var menuFontSize: CGFloat = 20
@@ -30,10 +30,10 @@ class ViewController: UIViewController {
     private var previusStation = StationView()
     private var alpha: CGFloat = 0.2
     private var menuConstraint = 8
-    
+    //data
     private var pathBuilded: Bool = false
-    private var path: [Int] = []
-    
+    private var path: StationPath = []
+    //marks
     private var stationFrom: Int? = nil
     private var stationTo: Int? = nil
     
@@ -153,7 +153,7 @@ extension ViewController {
         var edges = [CAShapeLayer]()
         
         for stationId in 0..<(path.count-1){
-            if let edge = lines["\(path[stationId]) \(path[stationId + 1])"] ?? lines["\(path[stationId + 1]) \(path[stationId])"] {
+            if let edge = lines["\(path[stationId].id) \(path[stationId + 1].id)"] ?? lines["\(path[stationId + 1].id) \(path[stationId].id)"] {
                 edges.append(edge.layer)
             }
         }
@@ -163,8 +163,11 @@ extension ViewController {
             line.value.layer.strokeColor = line.value.color.withAlphaComponent(alpha).cgColor
         }
         
+        var ids = [Int]()
+        for element in path { ids.append(element.id) }
+        
         for station in stations {
-            if path.contains(station.key) { continue }
+            if ids.contains(station.key) { continue }
             station.value.circle.color = station.value.color.withAlphaComponent(alpha)
             station.value.circle.layoutSubviews()
             station.value.title.alpha = alpha

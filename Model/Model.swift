@@ -8,19 +8,35 @@
 
 import Foundation
 
-func RestorePath(_ parents: [Int], from: Int, to: Int) -> [Int]{
+typealias StationPath = [(id: Int, change: Bool, time: Int)]
+
+func RestorePath(_ parents: [Int], from: Int, to: Int) -> StationPath{
     //Initialize variables
     var backwardStation = to
-    var path: [Int] = [backwardStation]
+    var previusLine = MetroData.shared.stations[backwardStation]?.lineId
+    var path: StationPath = [(id: backwardStation, change: true, time: 0)]
+    var edges = MetroData.shared.stations[backwardStation]!.edges
+    
     while backwardStation != from { //step back while backward station isnt start point
         backwardStation = parents[backwardStation - 1] //get prev station
-        path.append(backwardStation) //append to path
+        //get time to current station
+        for edge in edges { if edge.to == backwardStation { path[path.count - 1].time = edge.time } }
+        
+        if MetroData.shared.stations[backwardStation]?.lineId != previusLine {
+            path[path.count - 1].change = true
+            path.append((id: backwardStation, change: true, time: 0))
+        } else { path.append((id: backwardStation, change: false, time: 0)) }
+        
+        previusLine = MetroData.shared.stations[backwardStation]?.lineId //update
+        edges = MetroData.shared.stations[backwardStation]!.edges //update
     }
+    path[path.count - 1].change = true
+    edges = MetroData.shared.stations[backwardStation]!.edges
     return path.reversed() //return path from begging to finish (thats why reversed)
 }
 
 //Find fastest way to station. Dijkstra's algorithm. Complexity O(N^2)
-func FindPath(from: Int, to: Int) -> [Int] {
+func FindPath(from: Int, to: Int) -> StationPath {
     let N = MetroData.shared.stations.count //get count of all staions
     var weight = [Int : (weight: Int, visited: Bool)]() //initialize weights
     for idx in 0..<N { weight[idx + 1] = (weight: Int.max, visited: false) } //fill weights (Int.max cuz +infinity)
