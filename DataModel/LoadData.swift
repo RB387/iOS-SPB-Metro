@@ -11,6 +11,7 @@ import Foundation
 class MetroData {
     
     static let shared = MetroData()
+    var fetched: Bool = false
     var stations = [Int : Station]()
     var lines = [Line]()
     var multiPoints = [MultiPoint]()
@@ -18,14 +19,15 @@ class MetroData {
     
     
     func FetchData(){
+        if fetched { return }
         if let pathJson = Bundle.main.url(forResource: "data", withExtension: "json"),
             let data = try? Data(contentsOf: pathJson),
             let json = try? JSONSerialization.jsonObject(with: data) as? [String:Any]{
             
                 for multiPoint in json["multiPoints"] as! [[String : Any]]{
                     let coordsPoint = multiPoint["coords"] as! [String : NSNumber]
-                    MetroData.shared.multiPoints.append(MultiPoint(ids: multiPoint["id"] as! [Int], coords: (x: coordsPoint["x"]!.floatValue, y: coordsPoint["y"]!.floatValue)))
-                    MetroData.shared.multiPointIds += multiPoint["id"] as! [Int]
+                    multiPoints.append(MultiPoint(ids: multiPoint["id"] as! [Int], coords: (x: coordsPoint["x"]!.floatValue, y: coordsPoint["y"]!.floatValue)))
+                    multiPointIds += multiPoint["id"] as! [Int]
                 }
                 
                 for oneStation in json["stations"] as! [[String : Any]]{
@@ -36,7 +38,7 @@ class MetroData {
                             for edge in edges { edgesArray.append((time: edge["time"]!, to: edge["id"]! )) }
                         let station = Station(id: id, coords: (x: coords["x"]!.floatValue, y: coords["y"]!.floatValue),
                                                   multi: multi, name: (ru: name["ru_RU"]!, en: name["en_EN"]!), edges: edgesArray, lineId: lineId)
-                        MetroData.shared.stations[id] = station
+                        stations[id] = station
                     }
                     else{ fatalError("DATA FILE IS CORRUPT") }
                 }
@@ -51,9 +53,10 @@ class MetroData {
                     for oneStation in line {
                         linePaths.append((from: oneStation["from"]!, to: oneStation["to"]!))
                     }
-                    MetroData.shared.lines.append(Line(id: idx + 1, path: linePaths, color: colors[idx]))
+                    lines.append(Line(id: idx + 1, path: linePaths, color: colors[idx]))
                 }
         }
+        fetched = true
     }
     
 }

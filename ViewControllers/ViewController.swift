@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     //-MARK- UI ELEMENTS
     private let selectMenu = SelectMenuView()
+    private let markFrom = MarkView()
+    private let markTo = MarkView()
     @IBOutlet weak var map: MapView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var showRouteButton: UIButton!
@@ -49,7 +51,7 @@ class ViewController: UIViewController {
         for line in lines.values{ map.layer.addSublayer(line.layer) }
         for i in 0..<MetroData.shared.multiPoints.count { map.addSubview(map.drawMultiPoint(i)) }
         for station in stations.values{ map.addSubview(station.circle); map.addSubview(station.title) }
-        configureSelectMenu()
+        configureUI()
         updateScale()
         centerMap()
     }
@@ -103,10 +105,20 @@ extension ViewController {
         showRouteButton.alpha = 0
         cancelButton.layer.cornerRadius = screenHeight / 32
         cancelButton.alpha = 0
+        
     }
 
     
-    func configureSelectMenu(){
+    func configureUI(){
+        //-MARK- Selected stations marks
+        for mark in [(obj: markTo, img: "EllipseTo", char: "B"), (obj: markFrom, img: "EllipseFrom", char: "A")]{
+            mark.obj.frame = CGRect(x: 0, y: 0, width: menuHeight, height: menuHeight)
+            mark.obj.image = UIImage(named: mark.img)
+            mark.obj.markCharacter = mark.char
+            mark.obj.fontSize = menuFontSize * 1.25
+            mark.obj.alpha = 0
+            map.addSubview(mark.obj)
+        }
         // -MARK- SelectMenu
         selectMenu.frame = CGRect(x: 0, y: 0, width: menuWidth, height: menuHeight)
         selectMenu.isHidden = true
@@ -133,11 +145,16 @@ extension ViewController {
         })
     }
     func updateScale(){
-        if scrollView.zoomScale < scrollView.minimumZoomScale { return }
+        if scrollView.zoomScale < scrollView.minimumZoomScale || scrollView.zoomScale > scrollView.maximumZoomScale { return }
         let width = menuWidth*(1/scrollView.zoomScale)
         selectMenu.frame = CGRect(x: selectMenu.frame.minX+((selectMenu.frame.width - width)/2), y: selectMenu.frame.minY, width: width, height: menuHeight*(1/scrollView.zoomScale))
         selectMenu.fontSize = menuFontSize * (1/scrollView.zoomScale)
         selectMenu.strokeWidth = menuStrokeWidth * (1/scrollView.zoomScale)
+        let markWidth = menuHeight*(1/scrollView.zoomScale)
+        for mark in [markTo, markFrom] {
+            mark.frame = CGRect(x: mark.frame.minX+((mark.frame.width - markWidth)/2), y: mark.frame.minY + ((mark.frame.height - markWidth)), width: markWidth, height: markWidth)
+            mark.fontSize = menuFontSize * 1.25 * (1/scrollView.zoomScale)
+        }
     }
     
     func centerMap(){
@@ -188,7 +205,17 @@ extension ViewController {
             station.value.title.alpha = 1
         }
         stationTo = nil; stationFrom = nil
+        markTo.alpha = 0; markFrom.alpha = 0
         pathBuilded = false
+    }
+    
+    func setMark(x: CGFloat, y: CGFloat, mark: MarkView) {
+        mark.alpha = 0
+        mark.frame.origin.x = x - mark.frame.size.width/2 + lineWidth/2 + strokeWidth
+        mark.frame.origin.y = y - mark.frame.size.height
+        UIView.animate(withDuration: 0.3){
+            mark.alpha = 1
+        }
     }
     
 }
@@ -229,8 +256,12 @@ extension ViewController: StationDelegate{
 extension ViewController: SelectMenuDelegate {
     func selectedMenu(sender: SelectorView) {
         switch sender.accessibilityIdentifier {
-        case "toSelector": stationTo = previusStation.stationId
-        case "fromSelector": stationFrom = previusStation.stationId
+        case "toSelector":
+            stationTo = previusStation.stationId
+            setMark(x: previusStation.frame.minX, y: previusStation.frame.minY, mark: markTo)
+        case "fromSelector":
+            stationFrom = previusStation.stationId
+            setMark(x: previusStation.frame.minX, y: previusStation.frame.minY, mark: markFrom)
         default: fatalError("No such identifier")
         }
         buildPath()
