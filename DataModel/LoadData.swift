@@ -20,6 +20,7 @@ class MetroData {
     
     func FetchData(){
         if fetched { return }
+        
         if let pathJson = Bundle.main.url(forResource: "data", withExtension: "json"),
             let data = try? Data(contentsOf: pathJson),
             let json = try? JSONSerialization.jsonObject(with: data) as? [String:Any]{
@@ -31,14 +32,21 @@ class MetroData {
                 }
                 
                 for oneStation in json["stations"] as! [[String : Any]]{
-                    if let id = oneStation["id"] as? Int, let coords = oneStation["coords"] as? [String : NSNumber],
-                        let multi = oneStation["multi"] as? Bool, let name = oneStation["name"] as? [String : String],
-                        let edges = oneStation["edges"] as? [[String : Int]], let lineId = oneStation["line"] as? Int {
+                    if let id = oneStation["id"] as? Int,
+                        let coords = oneStation["coords"] as? [String : NSNumber],
+                        let multi = oneStation["multi"] as? Bool,
+                        let name = oneStation["name"] as? [String : String],
+                        let titleCoords = oneStation["title"] as? [String : NSNumber],
+                        let edges = oneStation["edges"] as? [[String : Int]],
+                        let lineId = oneStation["line"] as? Int {
                             var edgesArray = [(time: Int, to: Int)]()
                             for edge in edges { edgesArray.append((time: edge["time"]!, to: edge["id"]! )) }
-                        let station = Station(id: id, coords: (x: coords["x"]!.floatValue, y: coords["y"]!.floatValue),
-                                                  multi: multi, name: (ru: name["ru_RU"]!, en: name["en_EN"]!), edges: edgesArray, lineId: lineId)
-                        stations[id] = station
+                            let station = Station(id: id,
+                                            coords: (x: coords["x"]!.floatValue, y: coords["y"]!.floatValue),
+                                            titleCoords: (x: titleCoords["x"]!.floatValue, y: titleCoords["y"]!.floatValue),
+                                            multi: multi, name: (ru: name["ru_RU"]!, en: name["en_EN"]!),
+                                            edges: edgesArray, lineId: lineId)
+                            stations[id] = station
                     }
                     else{ fatalError("DATA FILE IS CORRUPT") }
                 }
@@ -55,7 +63,7 @@ class MetroData {
                     }
                     lines.append(Line(id: idx + 1, path: linePaths, color: colors[idx]))
                 }
-        }
+        } else { fatalError("DATA FILE IS CORRUPT") }
         fetched = true
     }
     

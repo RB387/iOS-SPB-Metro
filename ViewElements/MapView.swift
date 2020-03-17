@@ -23,7 +23,9 @@ class MapView: UIView {
     
     func drawStation(_ idx: Int, delegate: StationDelegate) -> (circle: StationView, title: UILabel, color: UIColor){
         var station = MetroData.shared.stations[idx]!.coords
+        var titleCoord = MetroData.shared.stations[idx]!.titleCoords
         station.x *= scale; station.y *= scale
+        titleCoord.x *= scale; titleCoord.y *= scale
         let line = MetroData.shared.lines[MetroData.shared.stations[idx]!.lineId - 1]
         let stationUI = StationView(frame: CGRect(x: CGFloat(station.x) - lineWidth*strokeScale/2, y: CGFloat(station.y) - lineWidth*strokeScale/2, width: lineWidth*strokeScale, height: lineWidth*strokeScale))
         stationUI.strokeScale = strokeScale
@@ -34,7 +36,7 @@ class MapView: UIView {
         stationUI.stationId = idx
         stationUI.delegate = delegate
         
-        let title = UILabel(frame: CGRect(x: CGFloat(station.x) + lineWidth/2 + strokeWidth, y: CGFloat(station.y) - lineWidth/2, width: 10 * CGFloat(scale), height: CGFloat(scale)))
+        let title = UILabel(frame: CGRect(x: CGFloat(titleCoord.x) + lineWidth/2 + strokeWidth, y: CGFloat(titleCoord.y) - lineWidth/2, width: 20 * CGFloat(scale), height: CGFloat(scale)))
         title.textAlignment = .left
         title.font = UIFont.boldSystemFont(ofSize: CGFloat(scale))
         title.text = MetroData.shared.stations[idx]!.name.ru.capitalized

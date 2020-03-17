@@ -11,6 +11,7 @@ import Foundation
 struct Station {
     var id: Int
     var coords: (x: Float, y: Float)
+    var titleCoords: (x: Float, y: Float)
     var multi: Bool
     var name: (ru: String, en: String)
     var edges: [(time: Int, to: Int)]
