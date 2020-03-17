@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol StationDelegate {
+protocol StationDelegate: AnyObject {
     func stationSelected(sender: StationView) -> Void
 }
 
 class StationView: UIView {
-    var delegate: StationDelegate?
+    weak var delegate: StationDelegate?
     var color: UIColor = .white
     var lineWidth: CGFloat = 10
     var stationId: Int?

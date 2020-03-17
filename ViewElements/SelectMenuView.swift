@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SelectMenuDelegate {
+protocol SelectMenuDelegate: AnyObject {
     func selectedMenu(sender: SelectorView) -> Void
 }
 
 class SelectMenuView: UIView {
 
     var spaceBetween: CGFloat = 40
-    var delegate: SelectMenuDelegate?
+    weak var delegate: SelectMenuDelegate?
     var fontSize: CGFloat = 40
     var color: UIColor = .white
     var strokeWidth: CGFloat = 5

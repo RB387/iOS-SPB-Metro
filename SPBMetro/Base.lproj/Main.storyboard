@@ -103,6 +103,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="f7w-LY-qNl"/>
                     <connections>
                         <outlet property="cancelButton" destination="nM3-ez-ZBr" id="no9-zv-HhD"/>
                         <outlet property="map" destination="ejd-Sd-AGf" id="m0p-P0-nzL"/>

@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol MapViewDelegate {
+protocol MapViewDelegate: AnyObject {
     func touchesEnded() -> Void
 }
 
 class MapView: UIView {
 
-    var delegate: MapViewDelegate?
+    weak var delegate: MapViewDelegate?
     var strokeScale: CGFloat = 10
     var strokeWidth: CGFloat = 10
     var lineWidth: CGFloat = 10

@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SelectorDelegate {
+protocol SelectorDelegate: AnyObject {
     func OptionSelected(sender: SelectorView) -> Void
 }
 
 class SelectorView: UIView {
 
     var text: String = "Selector View"
-    var delegate: SelectorDelegate?
+    weak var delegate: SelectorDelegate?
     var color: UIColor = .white
     var fontSize: CGFloat = 20
     var fontColor: UIColor = .black
