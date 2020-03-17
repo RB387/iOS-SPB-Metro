@@ -58,12 +58,7 @@ class ViewController: UIViewController {
         centerMap()
     }
     
-    deinit {
-        print("deinit")
-    }
-    
     @IBAction func showRouteClick(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "showPath", sender: showRouteButton)
         
     }
