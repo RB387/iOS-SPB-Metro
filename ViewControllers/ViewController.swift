@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private var model = Model()
+    
     //-MARK- UI ELEMENTS
     private let selectMenu = SelectMenuView()
     private let markFrom = MarkView()
@@ -71,6 +73,13 @@ class ViewController: UIViewController {
         guard segue.identifier == "showPath" else { return }
         guard let destination = segue.destination as? PathViewController else { return }
         destination.path = path
+    }
+    @IBAction func zoomInClick(_ sender: Any) {
+        scrollView.zoomScale = scrollView.zoomScale + (scrollView.maximumZoomScale - scrollView.minimumZoomScale) * 0.1
+    }
+    @IBAction func zoomOutClick(_ sender: Any) {
+        scrollView.zoomScale = scrollView.zoomScale - (scrollView.maximumZoomScale - scrollView.minimumZoomScale) * 0.1
+        
     }
 }
 
@@ -166,7 +175,7 @@ extension ViewController {
     func buildPath(){
         guard let pathFrom = stationFrom, let pathTo = stationTo else { return }
         
-        path = FindPath(from: pathFrom, to: pathTo)
+        path = model.FindPath(from: pathFrom, to: pathTo)
         var edges = [CAShapeLayer]()
         
         for stationId in 0..<(path.count-1){

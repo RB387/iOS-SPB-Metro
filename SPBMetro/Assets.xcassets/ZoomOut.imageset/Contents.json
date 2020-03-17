@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Vector.png",
+      "filename" : "Active.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Vector-3.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Vector-2.png",
       "scale" : "3x"
     }
   ],

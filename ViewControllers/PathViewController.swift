@@ -43,7 +43,14 @@ class PathViewController: UIViewController {
             } else if previusLine != -1 { //else (except first station)
                 let changeLineLabel = UILabel(frame: CGRect(x: indent*2 + linesWidth*2, y: currentY, width: 256, height: linesWidth*2))
                 changeLineLabel.text = "Сделайте пересадку"
+                currentY += indent + linesWidth*2
+                let changeIcon = UIImageView(frame: CGRect(x: indent*2 + linesWidth*2, y: currentY, width: linesWidth*1.5, height: linesWidth*2))
+                changeIcon.image = UIImage(named: "StationChangeIcon")
+                let timeInfoLabel = UILabel(frame: CGRect(x: indent*3 + linesWidth*3.5, y: currentY, width: 100, height: linesWidth*2))
+                timeInfoLabel.text = "\(stationId.time / 60) мин"
                 pathView.addSubview(changeLineLabel)
+                pathView.addSubview(changeIcon)
+                pathView.addSubview(timeInfoLabel)
                 currentY += indent + linesWidth*2
             }
             

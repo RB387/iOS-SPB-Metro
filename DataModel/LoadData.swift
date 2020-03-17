@@ -11,7 +11,7 @@ import Foundation
 class MetroData {
     
     static let shared = MetroData()
-    var fetched: Bool = false
+    private var fetched: Bool = false
     var stations = [Int : Station]()
     var lines = [Line]()
     var multiPoints = [MultiPoint]()

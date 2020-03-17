@@ -49,6 +49,26 @@
                                     <action selector="showRouteClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Vg-fG-zzg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDb-CS-orS">
+                                <rect key="frame" x="325.5" y="8" width="41.5" height="41.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DDb-CS-orS" secondAttribute="height" multiplier="1:1" id="IhJ-Gx-UN5"/>
+                                </constraints>
+                                <state key="normal" title="zoomPlus" image="ZoomIn"/>
+                                <connections>
+                                    <action selector="zoomInClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qhh-Cy-m5G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvw-Tm-MYi">
+                                <rect key="frame" x="325.5" y="57.5" width="41.5" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gvw-Tm-MYi" secondAttribute="height" multiplier="1:1" id="2Si-Rx-qKH"/>
+                                </constraints>
+                                <state key="normal" title="zoomMinus" image="ZoomOut"/>
+                                <connections>
+                                    <action selector="zoomOutClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iqE-Ab-mfv"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nM3-ez-ZBr">
                                 <rect key="frame" x="8" y="8.5" width="41.5" height="40.5"/>
                                 <constraints>
@@ -66,14 +86,20 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iVW-wB-7I4" secondAttribute="bottom" id="0dL-0J-j8m"/>
                             <constraint firstItem="nM3-ez-ZBr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="1Ne-t6-YXm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gfe-Xw-xSc" secondAttribute="bottom" constant="8" id="43N-wh-7Iu"/>
+                            <constraint firstItem="gvw-Tm-MYi" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:16" id="FT0-WJ-xsh"/>
                             <constraint firstItem="nM3-ez-ZBr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="GU1-78-ph0"/>
                             <constraint firstItem="gfe-Xw-xSc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="KXQ-fC-jYe"/>
                             <constraint firstItem="iVW-wB-7I4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kgx-YN-ly1"/>
+                            <constraint firstItem="gvw-Tm-MYi" firstAttribute="top" secondItem="DDb-CS-orS" secondAttribute="bottom" constant="8" id="MiW-om-z8s"/>
+                            <constraint firstItem="DDb-CS-orS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:16" id="NSG-BT-AjN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DDb-CS-orS" secondAttribute="trailing" constant="8" id="QL4-Va-hbg"/>
                             <constraint firstItem="iVW-wB-7I4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bFF-cP-AO5"/>
                             <constraint firstItem="nM3-ez-ZBr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:16" id="cf2-Ik-3hp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iVW-wB-7I4" secondAttribute="trailing" id="gWf-1q-T7s"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gvw-Tm-MYi" secondAttribute="trailing" constant="8" id="kAt-1I-vPx"/>
                             <constraint firstItem="gfe-Xw-xSc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:12" id="ple-YZ-MwT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gfe-Xw-xSc" secondAttribute="trailing" constant="8" id="sm6-KK-AH1"/>
+                            <constraint firstItem="DDb-CS-orS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="yRe-FT-Ynj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -121,6 +147,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ZoomIn" width="73" height="73"/>
+        <image name="ZoomOut" width="73" height="73"/>
         <image name="xmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
